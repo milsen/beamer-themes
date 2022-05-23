@@ -11,9 +11,16 @@
 
 % Commands --------------------------------------------------------------------
 % \email for placing your email on the titlepage
-\newcommand\email[1]{%      % \email has one argument
-    \newcommand\insertemail{%   % that can be printed out by \insertemail
+\newcommand\email[1]{% \email has one argument
+    \newcommand\insertemail{% that can be printed out by \insertemail
         \texttt{\href{mailto:#1}{#1}}%
+    }
+}
+
+% \titlenote for placing your co-authors/helpers on the titlepage
+\newcommand\titlenote[1]{% \titlenote has one argument
+    \newcommand\inserttitlenote{% that can be printed out by \inserttitlenote
+        #1%
     }
 }
 
@@ -45,13 +52,20 @@
 % title page
 \setbeamertemplate{title page}{%
     \thispagestyle{empty}%  % no headline nor footer on title page
-                % title page header
-    \vspace{.4cm}%
+    \vspace{.4cm}% title page header
     \vbox to 5.3cm{%
-    \begin{beamercolorbox}[wd=7.7cm,sep=8pt]{title page header}%
-        \raggedleft\usebeamerfont{title}\inserttitle\par%
-        \raggedleft\usebeamerfont{subtitle}\insertsubtitle%
-    \end{beamercolorbox}%
+    \hspace*{-1cm}%
+    \begin{beamercolorbox}[wd=.695\paperwidth,sep=3pt,right]{title page header}%
+        \usebeamerfont{title}\inserttitle%
+    \end{beamercolorbox}\hfill%
+    \hspace*{-1cm}%
+    \begin{beamercolorbox}[wd=.695\paperwidth,sep=3pt,right]{titlelike}%
+        \usebeamerfont{subtitle}\insertsubtitle%
+    \end{beamercolorbox}\hfill%
+    \hspace*{-1cm}%
+    \begin{beamercolorbox}[wd=.695\paperwidth,sep=3pt,right]{title page header}%
+        \usebeamerfont{footnote}\inserttitlenote%
+    \end{beamercolorbox}\hfill%
     \vfil%
     }%
     \makebox[\linewidth]{% different "footline" on the title page
