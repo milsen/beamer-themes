@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Latex BeamerColorTheme Electric
+%
+% Copyright 2015-2022 Max Ilsen
+% Licensed under the MIT license: https://opensource.org/licenses/MIT
+% Permission is granted to use, copy, modify, and distribute the work.
+% Full license information available in the project LICENSE file.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+
+% New Colors ------------------------------------------------------------------
+\colorlet{Ered}{red!70!blue}
+\colorlet{Eblue}{blue!70!green}
+\colorlet{Ecyan}{blue!50!cyan!50!white}
+\colorlet{Eviolet}{Ered!60!Eblue}
+\colorlet{Egreen}{green!50!black}
+
+% shorter commands
+\newcommand\Ered{\color{Ered}}
+\newcommand\Eblue{\color{Eblue}}
+\newcommand\Ecyan{\color{Ecyan}}
+\newcommand\Eviolet{\color{Eviolet}}
+\newcommand\Egreen{\color{Egreen}}
+
+% Palettes --------------------------------------------------------------------
+\setbeamercolor{palette primary}{fg=black}
+\setbeamercolor{palette secondary}{fg=white,bg=Eblue}
+\setbeamercolor{palette tertiary}{fg=blue!10!black,bg=Ecyan}
+\setbeamercolor{palette quarternary}{fg=Ered,bg=white}
+
+% Colors Assigned to Other Elements -------------------------------------------
+\setbeamercolor{framenumber}{parent=palette primary}
+\setbeamercolor{title page header}{parent=palette primary}
+\setbeamercolor{section in toc}{parent=palette primary}
+
+\setbeamercolor{titlelike}{parent=palette secondary}
+\setbeamercolor{frametitle}{parent=titlelike}
+\setbeamercolor{date}{parent=frametitle}
+
+\setbeamercolor{section}{parent=palette tertiary}
+\setbeamercolor{email}{parent=section}
+
+\setbeamercolor{item}{parent=palette quarternary}
+\setbeamercolor{subsection}{parent=palette quarternary} % not used in this template
+
+% block and theorem environments, alerted and example text
+\setbeamercolor{block title}{fg=Eviolet}
+\setbeamercolor{theorem title}{fg=Eviolet}
+\setbeamercolor{alerted text}{fg=Ered}
+\setbeamercolor{example text}{fg=Egreen}
+
+\mode
+<all>

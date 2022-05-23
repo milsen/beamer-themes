@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Latex BeamerTheme ModusPonens
+%
+% Copyright 2015-2022 Max Ilsen
+% Licensed under the MIT license: https://opensource.org/licenses/MIT
+% Permission is granted to use, copy, modify, and distribute the work.
+% Full license information available in the project LICENSE file.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+
+% Commands -----------------------------------------------------------
+\providecommand\insertframetitle{}
+\providecommand\insertframesubtitle{}
+\providecommand\insertsectionnavigation{}
+
+% redefined \insertsectionnavigation
+\renewcommand\insertsectionnavigation[1]{%
+    \hbox to #1{%
+    \vbox{%
+        \usebeamerfont{section in head/foot}%
+        \usebeamercolor[fg]{section}%
+        \vfil%
+        \def\slideentry##1##2##3##4##5##6{}%
+        \def\sectionentry##1##2##3##4##5{%
+            \def\insertsectionheadnumber{##1}%
+            \def\insertsectionhead{##2}%
+            \def\insertpartheadnumber{##5}%
+            \setbox\beamer@tempbox=\hbox{%
+                \RaggedRight%
+                \hyperlink{Navigation##3}{\hbox to #1{%
+                \hskip0.1cm%
+                    \ifnum\c@section=##1%
+                        {\makebox[.25cm]{\ModusPonens@sectionsymbol}%
+                        \usebeamertemplate{section in head/foot}}%
+                    \else%
+                        {\hspace{.25cm}%
+                        \usebeamertemplate{section in head/foot shaded}}%
+                    \fi%
+                \hfil}}%
+            \hfil}%
+            \ht\beamer@tempbox=1.6875ex%
+            \dp\beamer@tempbox=0.75ex%
+            \box\beamer@tempbox%
+        }%
+        \dohead%
+        \vskip0.5625ex%
+    }%
+    \hfil}%
+}
+
+
+% Beamer Templates ------------------------------------------------------------
+% no additional frametitle since it is already in the headline
+\setbeamertemplate{frametitle}{}
+
+% no navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% no sidebars
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{sidebar left}{}
+
+% headline with frametitle
+\setbeamertemplate{headline}{%
+    \vspace{0.4cm}%
+    \leavevmode%
+    \begin{beamercolorbox}[wd=.695\paperwidth,ht=1.35cm]{frametitle}%
+    \ifx\insertframesubtitle\@empty% if no subtitle, only insert frametitle
+        \hspace{.25cm}%
+        \usebeamerfont{frametitle}\insertframetitle%
+        \vspace{.42cm}%
+    \else%              % else insert frametitle and framesubtitle
+        \hspace{.25cm}\usebeamerfont{frametitle}\insertframetitle\par%
+        \vspace{.1cm}%
+        \hspace{.25cm}\usebeamerfont{framesubtitle}\insertframesubtitle%
+        \vspace{.25cm}%
+        \fi%
+    \end{beamercolorbox}%
+    \hskip0.127cm%
+    \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.35cm]{section}%
+    \insertsectionnavigation{.295\paperwidth}%
+    \vspace{\dimexpr(5cm-\totvalue{section}cm)/\numexpr4\relax\relax}%
+    \end{beamercolorbox}%
+    \vspace{0.3cm}%
+}
+
+% footline with framenumber
+\setbeamertemplate{footline}{%
+    \hspace{.705\paperwidth}%
+    \begin{beamercolorbox}[wd=.295\paperwidth,ht=4ex,dp=2ex,rightskip=.2cm]{framenumber}%
+    \hfill%
+    \usebeamerfont{framenumber}{\insertframenumber~of~\inserttotalframenumber}%
+    \end{beamercolorbox}%
+}
+
+\mode<all>

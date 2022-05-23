@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Latex BeamerFontTheme Basic
+%
+% Copyright 2015-2022 Max Ilsen
+% Licensed under the MIT license: https://opensource.org/licenses/MIT
+% Permission is granted to use, copy, modify, and distribute the work.
+% Full license information available in the project LICENSE file.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+
+% General Text ----------------------------------------------------------------
+% currently not changed
+\setbeamerfont{normal text}{}
+\setbeamerfont{alerted text}{}
+\setbeamerfont{example text}{}
+
+% Structures (Items etc.) -----------------------------------------------------
+\setbeamerfont{structure}{}
+\setbeamerfont{tiny structure}{size=\tiny}
+
+% Title Page ------------------------------------------------------------------
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\bfseries,shape=\sl}
+
+\setbeamerfont{author}{family=\sffamily}
+\setbeamerfont{date}{parent=author}
+\setbeamerfont{email}{parent=author}
+\setbeamerfont{institute}{parent=author,size=\large}
+
+% Table of Contents -----------------------------------------------------------
+\setbeamerfont{section in toc}{parent=structure}
+\setbeamerfont{section in toc shaded}{parent=section in toc}
+\setbeamerfont{subsection in toc}{}
+\setbeamerfont{subsection in toc shaded}{parent=subsection in toc}
+\setbeamerfont{subsubsection in toc}{size=\footnotesize}
+\setbeamerfont{subsubsection in toc shaded}{parent=subsubsection in toc}
+
+% Head- and Footline ----------------------------------------------------------
+\setbeamerfont{frametitle}{parent=structure,size=\Large}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\small}
+\setbeamerfont{section in head/foot}{series=\bfseries}
+
+\setbeamerfont{framenumber}{size=\small}
+
+% Unused Fonts ----------------------------------------------------------------
+% for quick customization if theme is changed to include these
+\setbeamerfont{title in head/foot}{}
+\setbeamerfont{author in head/foot}{}
+\setbeamerfont{institute in head/foot}{}
+
+\setbeamerfont{section name}{size=\Large}
+\setbeamerfont{section title}{size=\Large,parent=title}
+\setbeamerfont{subsection name}{size=\large}
+\setbeamerfont{subsection title}{size=\large,parent=title}
+
+\mode
+<all>

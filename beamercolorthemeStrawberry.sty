@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Latex BeamerColorTheme Strawberry
+%
+% Copyright 2015-2022 Max Ilsen
+% Licensed under the MIT license: https://opensource.org/licenses/MIT
+% Permission is granted to use, copy, modify, and distribute the work.
+% Full license information available in the project LICENSE file.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>
+
+% New Colors ------------------------------------------------------------------
+\colorlet{SBred}{red!70!white}
+\colorlet{SBorange}{orange!70!white}
+\colorlet{SBgreen}{green!50!black}
+\colorlet{SBblue}{blue!80!black}
+\colorlet{SBcyan}{cyan!80!black}
+\colorlet{SBviolet}{SBred!50!SBblue}
+
+% shorter commands
+\newcommand\SBred{\color{SBred}}
+\newcommand\SBorange{\color{SBorange}}
+\newcommand\SBgreen{\color{SBgreen}}
+\newcommand\SBblue{\color{SBblue}}
+\newcommand\SBcyan{\color{SBcyan}}
+\newcommand\SBviolet{\color{SBviolet}}
+
+% Palettes --------------------------------------------------------------------
+\setbeamercolor{palette primary}{fg=black}
+\setbeamercolor{palette secondary}{fg=white,bg=SBred}
+\setbeamercolor{palette tertiary}{fg=black!60!orange,bg=orange!60!white}
+\setbeamercolor{palette quarternary}{fg=SBorange,bg=white}
+
+% Colors Assigned to Other Elements -------------------------------------------
+\setbeamercolor{framenumber}{parent=palette primary}
+\setbeamercolor{title page header}{parent=palette primary}
+\setbeamercolor{section in toc}{parent=palette primary}
+
+\setbeamercolor{titlelike}{parent=palette secondary}
+\setbeamercolor{frametitle}{parent=titlelike}
+\setbeamercolor{date}{parent=frametitle}
+
+\setbeamercolor{section}{parent=palette tertiary}
+\setbeamercolor{email}{parent=section}
+
+\setbeamercolor{item}{parent=palette quarternary}
+\setbeamercolor{subsection}{parent=palette quarternary} % not used in this template
+
+% block and theorem environments, alerted and example text
+\setbeamercolor{block title}{fg=SBblue}
+\setbeamercolor{theorem title}{fg=SBblue}
+
+\setbeamercolor{example text}{fg=SBgreen}
+
+\setbeamercolor{alerted text}{fg=SBviolet}
+
+\mode
+<all>

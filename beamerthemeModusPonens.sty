@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Latex BeamerTheme ModusPonens
+%
+% Copyright 2015-2022 Max Ilsen
+% Licensed under the MIT license: https://opensource.org/licenses/MIT
+% Permission is granted to use, copy, modify, and distribute the work.
+% Full license information available in the project LICENSE file.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeModusPonens}
+
+% Provided Options -------------------------------------------------------------
+% provides option "sectionsymbol" to define highlighting symbol in section
+% navigation, e.g. [sectionsymbol=$\leftrightarrow$]
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=ModusPonens,prefix=ModusPonens@}
+\DeclareStringOption[\hspace{0.25cm}]{sectionsymbol}[]
+\DeclareDefaultOption{%
+    \PackageWarning{beamerthemeModusPonens}{Unknown option `\CurrentOption'}%
+}
+\ProcessKeyvalOptions*
+
+\mode<presentation>
+
+% Required Packages and Options ------------------------------------------------
+\RequirePackage{etex,fix-cm,ragged2e,totcount,xcolor}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\PassOptionsToPackage{unicode}{hyperref}
+
+% Settings ---------------------------------------------------------------------
+\useinnertheme{ModusPonens}
+\useoutertheme{ModusPonens}
+
+% Warnings ---------------------------------------------------------------------
+\AtBeginDocument{%
+    \regtotcounter{section}%
+    \ifnum\totvalue{section}>5% sectionnavigation messed up if sectionnumber > 5
+    \PackageWarning{beamerthemeModusPonens}%
+    {Number of Sections Greater than Five}%
+    \fi%
+}
+
+\mode<all>
