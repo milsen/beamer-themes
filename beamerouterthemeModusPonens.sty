@@ -68,14 +68,33 @@
     \begin{beamercolorbox}[wd=.695\paperwidth,ht=1.35cm]{frametitle}%
     \ifx\insertframesubtitle\@empty% if no subtitle, only insert frametitle
         \hspace{.25cm}%
-        \usebeamerfont{frametitle}\insertframetitle%
-        \vspace{.42cm}%
+        \newbox\frametitlebox%
+        \setbox\frametitlebox=\hbox{%
+            \usebeamerfont{frametitle}\insertframetitle%
+        }%
+        \dp\frametitlebox=1mm%
+        \box\frametitlebox%
+        \vspace{.32cm}%
     \else%              % else insert frametitle and framesubtitle
-        \hspace{.25cm}\usebeamerfont{frametitle}\insertframetitle\par%
+        \vbox{%
+        \newbox\frametitlebox%
+        \setbox\frametitlebox=\vbox{%
+            \hspace{.25cm}%
+            \usebeamerfont{frametitle}\insertframetitle\par%
+        }%
+        \dp\frametitlebox=1mm%
+        \newbox\framesubtitlebox%
+        \setbox\framesubtitlebox=\vbox{%
+            \hspace{.25cm}%
+            \usebeamerfont{framesubtitle}\insertframesubtitle%
+        }%
+        \dp\framesubtitlebox=1mm%
+        \box\frametitlebox%
         \vspace{.1cm}%
-        \hspace{.25cm}\usebeamerfont{framesubtitle}\insertframesubtitle%
-        \vspace{.25cm}%
-        \fi%
+        \box\framesubtitlebox%
+        \vspace{.15cm}%
+        }%
+    \fi%
     \end{beamercolorbox}%
     \hskip0.127cm%
     \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.35cm]{section}%
