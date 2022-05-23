@@ -24,10 +24,10 @@
     \fi%
 }
 
-% \ifinstempty used for a slightly different titlepage if no institute is given
-\newcommand\ifinstempty[2]{%    % if \insertinstitue prints no text
-    \setbox0=\hbox{\insertinstitute}\ifdim\wd0=0pt#1% it executes #1
-    \else#2%            % otherwise it executes #2
+% \ifinstempty used for a different titlepage if no logo/institute is given
+\newcommand\ifempty[3]{% if #1 prints no text
+    \setbox0=\hbox{#1}\ifdim\wd0=0pt#2% it executes #2
+    \else#3% otherwise it executes #3
     \fi%
 }
 
@@ -54,36 +54,32 @@
     \end{beamercolorbox}%
     \vfil%
     }%
-                % different "footline" on the title page
-    \makebox[\linewidth]{%
+    \makebox[\linewidth]{% different "footline" on the title page
     \begin{beamercolorbox}[wd=.695\paperwidth,ht=1.85cm]{date}%
         \mbox{%
         \hspace{.6cm}%
-        \insertlogo%
-        \hspace{1.2cm}%
-        \vbox{%
-            \ifinstempty%
-            {\usebeamerfont{author}\insertauthor\par}%
-            {\usebeamerfont{institute}\insertinstitute\par}%
-                \vspace{.25cm}%
-                \usebeamerfont{date}\insertdate%
+        \ifempty{\insertlogo}{}{\insertlogo\hspace{1.2cm}}%
+        \vbox{% only insert institute name if no logo is given
+            \ifempty{\insertinstitute}%
+                {\usebeamerfont{author}\insertauthor\par}%
+                {\ifempty{\insertlogo}%
+                    {\usebeamerfont{author}\insertauthor,~\usebeamerfont{institute}\insertinstitute\par}%
+                    {\usebeamerfont{author}\insertauthor\par}%
+                }%
+            \vspace{.25cm}%
+            \usebeamerfont{date}\insertdate%
             \vspace{.35cm}%
         }%
         }%
     \end{beamercolorbox}%
     \hspace{.127cm}%
-    \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.85cm,leftskip=.4cm]{email}%
+    \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.85cm,leftskip=.15cm]{email}%
         \vbox{%
-            \ifinstempty%
-            {\usebeamerfont{email}\checkcommand\insertemail%
-            \vspace{1.2cm}}%
-            {\usebeamerfont{author}\insertauthor\par%
-                \vspace{.25cm}%
-                \usebeamerfont{email}\checkcommand\insertemail%
-            \vspace{.42cm}}%
+            \usebeamerfont{email}\checkcommand\insertemail%
+            \vspace{1.2cm}%
         }%
     \end{beamercolorbox}%
-    }
+    }%
 }
 
 \mode<all>
