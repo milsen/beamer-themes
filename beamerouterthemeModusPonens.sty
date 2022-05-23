@@ -31,7 +31,7 @@
                 \hyperlink{Navigation##3}{\hbox to #1{%
                 \hskip0.1cm%
                     \ifnum\c@section=##1%
-                        {\makebox[.25cm]{\ModusPonens@sectionsymbol}%
+                        {\makebox[.25cm]{\raisebox{.3pt}{\ModusPonens@sectionsymbol}}%
                         \usebeamertemplate{section in head/foot}}%
                     \else%
                         {\hspace{.25cm}%
@@ -109,7 +109,7 @@
     \hspace{.705\paperwidth}%
     \begin{beamercolorbox}[wd=.295\paperwidth,ht=4ex,dp=2ex,rightskip=.2cm]{framenumber}%
     \hfill%
-    \usebeamerfont{framenumber}{\insertframenumber~of~\inserttotalframenumber}%
+    \usebeamerfont{framenumber}{\insertframenumber~/~\inserttotalframenumber}%
     \end{beamercolorbox}%
 }
 
