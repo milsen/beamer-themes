@@ -17,7 +17,7 @@
 % redefined \insertsectionnavigation
 \renewcommand\insertsectionnavigation[1]{%
     \hbox to #1{%
-    \vbox{%
+    \vbox to 1.35cm{%
         \usebeamerfont{section in head/foot}%
         \usebeamercolor[fg]{section}%
         \vfil%
@@ -40,11 +40,11 @@
                 \hfil}}%
             \hfil}%
             \ht\beamer@tempbox=1.6875ex%
-            \dp\beamer@tempbox=0.75ex%
+            \dp\beamer@tempbox=0.30ex%
             \box\beamer@tempbox%
         }%
         \dohead%
-        \vskip0.5625ex%
+        \vfil%
     }%
     \hfil}%
 }
@@ -98,8 +98,7 @@
     \end{beamercolorbox}%
     \hskip0.127cm%
     \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.35cm]{section}%
-    \insertsectionnavigation{.295\paperwidth}%
-    \vspace{\dimexpr(5cm-\totvalue{section}cm)/\numexpr4\relax\relax}%
+        \insertsectionnavigation{.295\paperwidth}%
     \end{beamercolorbox}%
     \vspace{0.3cm}%
 }
