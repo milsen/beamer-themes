@@ -70,7 +70,7 @@
     }%
     \makebox[\linewidth]{% different "footline" on the title page
     \begin{beamercolorbox}[wd=.695\paperwidth,ht=1.85cm]{date}%
-        \mbox{%
+        \makebox[.695\paperwidth][l]{%
         \hspace{.6cm}%
         \ifempty{\insertlogo}{}{\insertlogo\hspace{1.2cm}}%
         \vbox{% only insert institute name if no logo is given
@@ -87,11 +87,9 @@
         }%
     \end{beamercolorbox}%
     \hspace{.127cm}%
-    \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.85cm,leftskip=.15cm]{email}%
-        \vbox{%
-            \usebeamerfont{email}\checkcommand\insertemail%
-            \vspace{1.2cm}%
-        }%
+    \begin{beamercolorbox}[wd=.295\paperwidth,ht=1.85cm,leftskip=.3cm]{email}%
+        \usebeamerfont{email}\checkcommand\insertemail%
+        \vspace{1.2cm}%
     \end{beamercolorbox}%
     }%
 }
